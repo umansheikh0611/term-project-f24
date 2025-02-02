@@ -1,26 +1,28 @@
-name: wf-ci-development
+name: wf-ci-staging
 
 on:
   pull_request:
     branches:
-      - develop
+      - "release/**"
 
 jobs:
-  ci-development-job:
+  ci-staging-job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1 # Fetch only the current commit
 
       - name: Install Dependencies
-        run: |
-          npm install
+        run: npm ci
 
       - name: Lint HTML and CSS
         run: |
           npx htmlhint "**/*.html" || exit 1
-          npx stylelint "**/*.css" --fix || exit 1
+          npx stylelint "**/*.css" || exit 1
 
-      - name: Test Build Ops
+      - name: Test Build in Staging
         run: |
           npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"

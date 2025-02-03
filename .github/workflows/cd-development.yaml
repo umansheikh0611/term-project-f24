@@ -20,7 +20,7 @@ jobs:
         run: |
           npx parcel build "./src/index.html" --dist-dir "./dist" --public-url "./"
 
-      - name: Upload Build Artifacts
+      - name: UploadBuildArtifacts
         uses: actions/upload-pages-artifact@v3 
         with:
           path: "./dist"

@@ -13,10 +13,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref }}
-          fetch-depth: 1 # Fetch only the latest commit
+          #fetch-depth: 1 # Fetch only the latest commit, By Default it's 1
 
-      - name: Install Dependencies
-        run: npm install
+      #- name: Install Dependencies
+      #  run: npm install
 
       - name: Build Website for Production
         run: |
@@ -40,4 +40,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: "build-artifact-production"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}

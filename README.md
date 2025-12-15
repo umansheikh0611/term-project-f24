@@ -158,19 +158,32 @@ Production hosting is via GitHub Pages. The team’s public site is available at
 ## Directory Structure
 
 ```
-.
-├─ .github/
-│  └─ workflows/
-│     ├─ ci-development.yaml
-│     ├─ cd-development.yaml
-│     ├─ ci-staging.yaml
-│     ├─ cd-staging.yaml
-│     ├─ ci-production.yaml
-│     └─ cd-production.yaml
-├─ src/            # source HTML/CSS/assets
+term-project-f24/
+├── .github/
+│   └── workflows/
+│       ├── cd-development.yaml
+│       ├── cd-production.yaml
+│       ├── cd-staging.yaml
+│       ├── ci-development.yaml
+│       ├── ci-production.yaml
+│       └── ci-staging.yaml
+├── .gitignore
+├── .htmlhintrc
+├── .stylelintrc
+├── package.json
+├── repo-config.sh
+├── assets/        # source assets
+├── JS/
+├── src/           # source HTML
+├── styles/        # source CSS
 └─ dist/           # build artifacts (generated)
+
 ```
+
+## Acknowledgements
+
+We are deeply grateful to our course instructor and mentor, [Imran Ashraf](https://github.com/imranucp), for his guidance, feedback, and constant support throughout this project.
 
 ## License
 
-This repository is for academic purposes for the DevOps Fundamentals (Fall 2024) term project.
+This repository is for learning purposes for the DevOps Fundamentals term project.
